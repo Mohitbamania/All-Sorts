@@ -1,0 +1,47 @@
+#include <stdio.h>
+int main()
+{
+
+    int i, j, k, l, m, x, n, s;
+    int a[20];
+    int count[10] = {0};
+    int b[20];
+    printf("******************This is the Counting sort program******************");
+    printf("\nHow many element do you want to enter:");
+    scanf("%d", &n);
+
+    printf("\nEnter the array elements:");
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+
+    printf("\nyour array elements are:");
+    for (j = 0; j < n; j++)
+    {
+        printf("%d:", a[j]);
+    }
+
+    for (k = 0; k < n; k++)
+    {
+
+        ++count[a[k]];
+    }
+    for (l = 1; l <= n; l++)
+    {
+        count[l] = count[l] + count[l - 1];
+    }
+    for (m = n - 1; m >= 0; m--)
+    {
+        b[--count[a[m]]] = a[m];
+    }
+    printf("\nyour element are sorted:");
+    for (x = 0; x < n; x++)
+    
+     {
+   
+        printf("\n%d:", b[x]);
+    }
+
+   
+}
